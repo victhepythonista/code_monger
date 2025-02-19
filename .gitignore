@@ -1,0 +1,6 @@
+*.pyc
+__pycache__/
+*.pkl
+dist/
+build/
+code_monger.egg-info/
