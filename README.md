@@ -7,7 +7,7 @@
 - You can install the package easily on the command using **pip**
 
 ## Dependencies
-- Oh , none need installing ,ecvery depencie comes with python ( __Python Standard Lirary__ )
+- Oh , none need installing ,every dependency comes with python ( __Python Standard Library__ )
 - The main libraries used are :
   - string 
   - random
