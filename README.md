@@ -1,9 +1,17 @@
 
+
 # Introduction
 - **Code monger** is a simple Python package for generation and validation of authentication codes which are generated and stored in files . 
 -  For example , you can use this package when generating authentication codes for authenticating user email addresses in a web application .
 # Installation using pip
 - You can install the package easily on the command using **pip**
+
+## Dependencies
+- Oh , none need installing ,ecvery depencie comes with python ( __Python Standard Lirary__ )
+- The main libraries used are :
+  - string 
+  - random
+  - os 
 
 ## Windows OS installation
 ```
