@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='code_monger',
-    version='0.1.1',
+    version='0.1.3',
     packages=['code_monger'],
     install_requires=[]
 
