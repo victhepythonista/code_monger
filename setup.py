@@ -19,7 +19,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="code_monger",
-    version="0.0.7",
+    version="0.1.3",
     author="Victor Kipkemboi",
     author_email="scriptilapia@gmail.com",
     description="A package for on-the-fly code generation and validation",
@@ -35,9 +35,5 @@ setuptools.setup(
     ],
     packages=["code_monger"],
     python_requires=">=3.6",
-    entry_points={
-                        'console_scripts': [
-                                'hwpypcmd=code_monger.intro:sayHi',
-                        ]
-                }
+ 
 )
