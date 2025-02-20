@@ -19,21 +19,30 @@
   - os 
 
 ## Windows OS installation
+
 ```
 python3 -m pip install code_monger
 
 ```
+
 alternatively 
+
 ```
 pip install code_monger
 ```
+
 or
+
 ```
 py -m pip install code_monger
 ```
+
 # Usage
+
 ### Simple code generation
+
 - Let us generate a simple code based on the provided parameters
+
 
 ```
 
@@ -43,8 +52,11 @@ my_code = generate_code(length = 20  )
 
 print(my_code)
 ```
+
 ### Custom code generation
 - Let us generate a custom code 
+
+
 
 ```
 
@@ -65,6 +77,8 @@ code generate_code(numbers = False , letters = True ,capitalize = False )
 # Letters only code
 code generate_code(numbers = True , letters = True  , punctuation  = True)
 ```
+
+
 > Please __NOTE__  :  generate_code function and __CodeGenerator.NewCode__  method require the same keyword arguments  with the exception that  __CodeGeneratorNewCode__ requires the __key_string__ argument 
 
 

@@ -23,8 +23,8 @@ setuptools.setup(
     author="Victor Kipkemboi",
     author_email="scriptilapia@gmail.com",
     description="A package for on-the-fly code generation and validation",
-    long_description=long_description,
     long_description_content_type="text/markdown",
+    long_description=long_description,
     url="https://github.com/victhepythonista/code_monger",
     project_urls={
         "Bug Tracker": "https://github.com/victhepythonista/code_monger/issues",
