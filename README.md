@@ -1,4 +1,9 @@
-
+ 
+<div align="center">
+<a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3"></a>
+		<a href="https://pepy.tech/projects/art"><img src="https://static.pepy.tech/badge/code-monger" alt="PyPI">
+<a href="https://github.com/victhepythonista/art"><img src="https://img.shields.io/github/stars/victhepythonista/code_monger.svg?style=social&label=Stars"></a>
+</div>
 
 # Introduction
 - **Code monger** is a simple Python package for generation and validation of authentication codes which are generated and stored in files . 
