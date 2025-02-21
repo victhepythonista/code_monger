@@ -7,3 +7,5 @@ code_monger.egg-info/
 *.bat
 myvenv/
 test_data/
+codes/
+
