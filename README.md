@@ -1,6 +1,6 @@
  
  
-<img  align="left" width="100" height="100"  src="https://i.ibb.co/B5ktzB6F/codemongerlogo.png"
+<img  align="center" width="100" height="100"  src="https://i.ibb.co/B5ktzB6F/codemongerlogo.png"
          alt="Logo">
  
  
