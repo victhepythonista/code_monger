@@ -3,7 +3,7 @@
  
  
 <p align="center">
-  <img   src="https://i.ibb.co/B5ktzB6F/codemongerlogo.png" alt="Logo">
+  <img   src="https://i.ibb.co/hFsBnBN3/code-monger-new-logo.png" alt="Logo">
 </p>
 
 <div align="center">
