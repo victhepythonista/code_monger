@@ -1,9 +1,10 @@
  
  
-<img  align="center" width="100" height="100"  src="https://i.ibb.co/B5ktzB6F/codemongerlogo.png"
-         alt="Logo">
  
  
+<p align="center">
+  <img width="460" height="300" src="https://i.ibb.co/B5ktzB6F/codemongerlogo.png" alt="Logo">
+</p>
 
 <div align="center">
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3"></a>
