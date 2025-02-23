@@ -1,7 +1,8 @@
  
 <figure align="center" >
-    <img  src="https://i.ibb.co/B5ktzB6F/codemongerlogo.png"
+    <img  align="left" width="100" height="100"  src="https://i.ibb.co/B5ktzB6F/codemongerlogo.png"
          alt="Logo">
+	 
     <figcaption><em>: )</em></figcaption>
 </figure>
 
