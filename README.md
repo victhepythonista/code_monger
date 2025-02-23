@@ -1,5 +1,5 @@
  
-<figure  >
+<figure align="center" >
     <img  src="https://i.ibb.co/B5ktzB6F/codemongerlogo.png"
          alt="Logo">
     <figcaption><em>: )</em></figcaption>
