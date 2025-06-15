@@ -10,26 +10,54 @@ from io import StringIO
 import datetime as dt
 
 
-def generate_code( length = 10 ,  numbers = True , letters = False , punctuation_chars = False , capitalize =False , random_case = False):
+valid_casing_values = ['all' , "upper" ,'lower']
+UNWANTED_CHARACHTERS = '''"','''
+def generate_code( length = 10 ,  numbers = False , letters = False , punctuation_chars = False , casing = "all"):
+    '''Makes a code following the parameters provided
+
+    Parameters
+    ----------
+    length:int
+        length of the code to be generated
+    numbers:bool
+        set to [True] to Include integers during code generation
+    letters:bool
+        set to [True] to Include english alphabet letters
+    punctuation_chars:bool
+        set to [True] to include punctuation characters  
+    casing:str
+        Choice of casing for the code generated , it can only be one of these :
+            > 'lower' - Lowercase only
+            > 'upper' - Uppercase only
+            > 'all'   - Mix uppercase and lowercase
+        If an invalid value is provided, the value is reset to 'all'
+
+    Returns
+    -------
+    str
+        the generated code is returned as a string object
+
     '''
-    Make a code as per the specifications and return it
-    '''
-    bool_parameters_chosen =  numbers , letters , punctuation ,capitalize ,random_case
+
     contents = ""
+    casing = casing.strip().lower()
+    if not casing in valid_casing_values:
+        casing = "all"
     if numbers:
         contents += digits
     if letters:
-        contents += ascii_lowercase
+        if casing == "all":
+            contents += ascii_uppercase + ascii_lowercase
+        elif casing == "upper":
+            contents += ascii_uppercase
+        elif casing == "lower":
+            contents += ascii_lowercase
     if punctuation_chars:
         contents += punctuation  
-    if capitalize:
-        contents = contents.upper()
-    elif random_case:
-        contents += ascii_uppercase # lowecase is already added 
-
     cache = ""
     if contents == "":
-        contents = ascii_uppercase + ascii_lowercase + digits + punctuation
+        contents = ascii_uppercase + digits  
+    contents = "".join([ char for char in contents if not char in UNWANTED_CHARACHTERS])
     while True:
         for i in range(0, length):
             cache += choice(contents)
@@ -42,9 +70,35 @@ class CodeGenerator:
         self.storage_file = storage_file
         self.CheckStorage()
 
-    def  NewCode(self, key_string ,length = 10 ,  numbers = True , letters = False , punctuation_chars = False , capitalize =False , random_case = False ) -> str:
+    def  NewCode(self, key_string ,length = 10 ,  numbers = True , letters = False , punctuation_chars = False , casing = "all" ) -> str:
         '''
         Generate a new code , store it in a file and return the code
+
+         Parameters
+        ----------
+        key_string:str
+            A string that will act as an identifier of the code ownership during validation
+            An example is an email_address, or a username 
+        length:int
+            length of the code to be generated
+        numbers:bool
+            set to [True] to Include integers during code generation
+        letters:bool
+            set to [True] to Include english alphabet letters
+        punctuation_chars:bool
+            set to [True] to include punctuation characters  
+        casing:str
+            Choice of casing for the code generated , it can only be one of these :
+                > 'lower' - Lowercase only
+                > 'upper' - Uppercase only
+                > 'all'   - Mix uppercase and lowercase
+            If an invalid value is provided, the value is reset to 'all'
+
+        Returns
+        -------
+        str
+            the generated code is returned as a string object
+
         '''
         self.CheckStorage()
         data_file = self.storage_file
@@ -53,7 +107,7 @@ class CodeGenerator:
         lines = [s.strip() for s in lines]
         contents = digits + ascii_uppercase
         while True:
-            cache = generate_code( length = length , numbers = numbers , letters = letters , punctuation_chars =punctuation , capitalize = capitalize)
+            cache = generate_code( length = length , numbers = numbers , letters = letters , punctuation_chars =punctuation , casing = casing)
             if not cache  in lines:
                 lines.append(key_string +","+ cache)
                 with open(data_file, 'w') as f:
@@ -66,8 +120,20 @@ class CodeGenerator:
     def ValidateCode(self, code , key_string , delete_if_valid =  True  )-> None:
         """
         Check if a code exists in the storage file . 
-        if delete_if_valid is True , the code is deleted from the file
+        if delete_if_valid is True , the code is deleted from the file .
+
+        Parameters
+        ----------
+        code:str
+            The code that is to be vlaidated
+        key_string:str
+            A string that will act as an identifier of the code ownership during validation
+            An example is an email_address, or a username 
+        delete_if_valid:bool
+            set to [True] to delete the code after positive validation , 
+            setting to [False] will leave the code in the file .   
         """
+
         self.CheckStorage()
         file = self.storage_file
         if not os.path.isfile(file):
@@ -90,12 +156,22 @@ class CodeGenerator:
                 return True
         return False
 
-    def ClearCodes(self ,delete = False ):
+    def ClearCodes(self ,delete_file = False ):
         ''' 
         This methods removes all the codes from the storage file . 
         set delete to True to delete the file 
+
+        Parameters
+        ----------
+        delete_file:bool
+            Set to [True] to delete the storage file , [False] will just clear the file contents
+
+        Returns
+        -------
+        None
         '''
-        if delete:
+
+        if delete_file:
             # delete the storage file
             try:
                 os.remove(self.storage_file)
@@ -110,6 +186,10 @@ class CodeGenerator:
     def CheckStorage(self):
         '''
         Ensure that the storage file is present , if not, attempt to create it
+
+        Returns
+        -------
+        None
 
         '''
         storage_file = self.storage_file

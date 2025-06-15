@@ -1,15 +1,15 @@
 from code_monger import generate_code
 # A code comprising of numbers only 
-code_numbers_only = generate_code(numbers = True , letters = False)
+numbers_only = generate_code(numbers = True , letters = False)
 
 # Letters only code
-code_letters_only =  generate_code(numbers = False , letters = True )
+letters_only =  generate_code(numbers = False , letters = True )
 
 # Uppercase Letters only code
-code_capitalized_no_numbers =  generate_code(numbers = False , letters = True , capitalize = True )
+uppercase_letters_only =  generate_code(casing = "upper" , letters = True   )
 
 # Lowercase Letters only code
-code_lowercase_only =  generate_code(numbers = False , letters = True ,capitalize = False )
+lowercase_letters_only =  generate_code(casing = "lower" , letters = True   )
 
 # code made up of letters, numbers and punctuation charachters
-code_all_types_of_charachters =  generate_code(numbers = True , letters = True  , punctuation_chars  = True)
+all_types_of_charachters =  generate_code(numbers = True , letters = True  , punctuation_chars  = True)
