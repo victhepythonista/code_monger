@@ -70,7 +70,14 @@ class CodeGenerator:
         self.storage_file = storage_file
         self.CheckStorage()
 
-    def  NewCode(self, key_string ,length = 10 ,  numbers = True , letters = False , punctuation_chars = False , casing = "all" ) -> str:
+    def  NewCode(self,
+            key_string ,
+            length = 10 ,
+            numbers = True ,
+            letters = False ,
+            punctuation_chars = False ,
+            casing = "all"
+             ) -> str:
         '''
         Generate a new code , store it in a file and return the code
 
@@ -107,7 +114,12 @@ class CodeGenerator:
         lines = [s.strip() for s in lines]
         contents = digits + ascii_uppercase
         while True:
-            cache = generate_code( length = length , numbers = numbers , letters = letters , punctuation_chars =punctuation , casing = casing)
+            cache = generate_code( 
+                length = length ,
+                numbers = numbers ,
+                letters = letters ,
+                punctuation_chars =punctuation_chars ,
+                casing = casing)
             if not cache  in lines:
                 lines.append(key_string +","+ cache)
                 with open(data_file, 'w') as f:
