@@ -1,9 +1,9 @@
 *.pyc
-/__pycache__/
+__pycache__/
 *.pkl
 /dist/
 /build/
-code_monger.egg-info/
+/code_monger.egg-info/
 *.bat
 *.sh
 /myvenv/
