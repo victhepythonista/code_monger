@@ -7,7 +7,16 @@
 </p>
 
 <div align="center">
-<a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3"></a>
+
+![](https://img.shields.io/badge/PYTHON-046E7a?style=for-the-badge)
+
+![](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge)
+
+
+</div>
+
+<div align="center">
+ 
 		<a href="https://pepy.tech/projects/code_monger"><img src="https://static.pepy.tech/badge/code-monger" alt="PyPI">
 <a href="https://github.com/victhepythonista/code_monger"><img src="https://img.shields.io/github/stars/victhepythonista/code_monger.svg?style=social&label=Stars"></a>
 </div>
@@ -19,9 +28,10 @@
 
 - **Code monger** is a simple Python package for generation and validation of authentication codes which are generated and stored in files . 
 -  For example , you can use this package when generating authentication codes for authenticating user email addresses in a web application .
-- Check out the <a href="https://github.com/victhepythonista/code_monger/blob/main/RELEASE_NOTES.md" target="_blank"> Release notes</a> to stay updated . 
+- **NOTE** : There are no duplicates in code generation ie, every time a new code is requested the old one is deleted
+- Check out the <a href="https://github.com/victhepythonista/code_monger/blob/main/RELEASE_NOTES.md" target="_blank">Release notes</a> to stay updated . 
 - Ideas are welcome, contribute !!
-- More is on the way .
+ 
 
 # Installation using pip
 - You can install the package easily on the command using **pip**
@@ -126,6 +136,35 @@ cg.ValidateCode(user_email , code)
 ### More on the CodeGenerator class 
 
 ```python
+
+
+
+from code_monger import CodeGenerator
+
+
+
+email= "myemail@domain.com" 
+cg = CodeGenerator("test_codes/example.txt")
+
+
+# Create a new code for the email
+code = cg.NewCode(email)
+
+# delete the code and the email using the code
+cg.DeleteCode(code)
+
+# delete the code and the email using the email/key
+cg.DeleteKey(email)
+
+# get the code 
+cg.GetCode(email)
+
+# get the key/email
+cg.GetKey(code)
+
+# replace the email/key string
+cg.ReplaceKey(email , "mewemail.dom.com")
+
 
 
 ```
