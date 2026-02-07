@@ -9,5 +9,5 @@ code_monger.egg-info/
 /myvenv/
 /venv/
 /test_data/
-codes/
-
+/codes/
+/test_codes/
