@@ -3,7 +3,7 @@
  
  
 <p align="center">
-  <img   src="https://i.ibb.co/5X7nd83b/LOGO.png" alt="Logo">
+  <img   src="LOGO.png" alt="Logo">
 </p>
 
 <div align="center">
