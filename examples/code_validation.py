@@ -4,7 +4,7 @@ from code_monger import CodeGenerator
 # Let's replicate a scenario where you want to authenticate a user's email in a web app
 
 user_email = "somerandom@email.com"
-codes_file = "codes/my_codes.txt"
+codes_file = "test_codes/my_codes.txt"
 cg = CodeGenerator(storage_file = codes_file)
 
 # let us generate a new code and store it in this variable ,

@@ -102,6 +102,10 @@ class CodeGenerator:
 
         '''
         self.CheckStorage()
+        if self.GetCode(key_string) != '':
+            # duplicating
+            self.DeleteKey(key_string)
+
         data_file = self.storage_file
         with open(data_file, "r") as f :
             lines = f.readlines()

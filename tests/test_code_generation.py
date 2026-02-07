@@ -7,6 +7,8 @@ from code_monger import CodeGenerator , generate_code
 
 default_code_length = generate_code.__defaults__[0]
 
+test_key_string = "tetskeystring"
+
 class TestCodeGeneration(TestCase):
 	def test_SimpleCodeGeneration(self):
 		'''
@@ -16,6 +18,19 @@ class TestCodeGeneration(TestCase):
 		self.assertTrue(type(code) == str and len(code) > 0 )
 
 
+	def test_no_duplicates(self):
+		'''Ensure no duplicate keystrings used
+		'''
+		test_file = "test_data/test_no_duplicates.txt"
+
+		cg = CodeGenerator(test_file)
+		cg.ClearCodes()
+		code = cg.NewCode(test_key_string)
+		code2 = cg.NewCode(test_key_string)
+		
+		with open(test_file,'r') as f:
+			data  = f.read()
+			self.assertTrue(data.count(test_key_string) == 1)
 
 	def test_CustomCodeGeneration(self):
 		'''

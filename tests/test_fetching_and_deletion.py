@@ -43,6 +43,7 @@ class Test_Code(TestCase):
 		cg.DeleteCode(code)
 		self.assertFalse(cg.ValidateCode(code , test_key_string , delete_if_valid=False))
 		self.assertTrue(cg.GetCode(test_key_string) == '')
+		self.assertTrue(cg.GetKey(code) == '')
 
  
 

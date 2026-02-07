@@ -98,6 +98,7 @@ all_types_of_charachters =  generate_code(numbers = True , letters = True  , pun
 > Please __NOTE__  :  generate_code function and __CodeGenerator.NewCode__  method require the same keyword arguments  with the exception that  __CodeGeneratorNewCode__ requires the __key_string__ argument 
 
 
+
 ### Code generation and validation in files
 
 - The class __CodeGenerator__ is what we will use for this functionality
@@ -121,5 +122,12 @@ cg.ValidateCode(user_email , code)
 # will return a Boolean , True if the code is valid else False
 ```
 
+
+### More on the CodeGenerator class 
+
+```python
+
+
+```
  
 
