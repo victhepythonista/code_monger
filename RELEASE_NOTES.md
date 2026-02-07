@@ -9,7 +9,7 @@
 	- **GetCode**
 	- **DeleteCode**
 
-
+- Logo update
 
 
  ## Version 0.1.7    (21-02-2025)
