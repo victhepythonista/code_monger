@@ -17,7 +17,7 @@
 
 <div align="center">
  
-		<a href="https://pepy.tech/projects/code_monger"><img src="https://static.pepy.tech/badge/code-monger" alt="PyPI"></a>
+<a href="https://pepy.tech/projects/code_monger"><img src="https://static.pepy.tech/badge/code-monger" alt="PyPI">
 <a href="https://github.com/victhepythonista/code_monger"><img src="https://img.shields.io/github/stars/victhepythonista/code_monger.svg?style=social&label=Stars"></a>
 </div>
 
