@@ -70,6 +70,7 @@ class CodeGenerator:
         self.storage_file = storage_file
         self.CheckStorage()
 
+
     def  NewCode(self, key_string ,length = 10 ,  numbers = True , letters = False , punctuation_chars = False , casing = "all" ) -> str:
         '''
         Generate a new code , store it in a file and return the code
@@ -101,6 +102,10 @@ class CodeGenerator:
 
         '''
         self.CheckStorage()
+        if self.GetCode(key_string) != '':
+            # duplicating
+            self.DeleteKey(key_string)
+
         data_file = self.storage_file
         with open(data_file, "r") as f :
             lines = f.readlines()
@@ -115,9 +120,199 @@ class CodeGenerator:
                         f.write(char + "\n")
                 return cache
 
-     
-     
-    def ValidateCode(self, code , key_string , delete_if_valid =  True  )-> None:
+    def GetKey(
+        self, 
+        code
+        ):
+        ''' Fetches the key string that matches the  code provided
+
+        Paramaters
+        ----------
+        self
+        code:str
+            The code to match
+
+        Returns
+        -------
+        key_string:the key attached to the code , '' if none
+        '''
+        key_string = ''
+        file = self.storage_file
+        self.CheckStorage()
+        if not os.path.isfile(file):
+            return key_string
+        with open(file, "r") as f:
+            data = f.readlines()
+        info = []
+        lines = [s.strip() for s in data]
+        for l in lines:
+            vals = l.split(',')
+            if not len(vals)>1:
+                continue
+            ks = vals[0] # fetch the key tring in the line
+            value = vals[1].replace("\n",'')
+            if value == code  :
+                key_string = ks 
+                break
+        return key_string
+
+    def ReplaceKey(
+        self,
+        old_key:str,
+        new_key:str)->bool:
+        """Replace the code associated with the old_key with new_key.
+
+
+        Parameters
+        ----------
+        old_key:str
+            The existing key 
+        new_key:str
+            The new replacement key 
+            
+
+        Returns
+        -------
+        outcome:bool
+            Whether or not the key has been successfully replaced 
+
+        """
+        file = self.storage_file
+        self.CheckStorage()
+        if not os.path.isfile(file):
+            return False
+        with open(file, "r") as f:
+            lines = [s.strip() for s in f.readlines()]
+
+        new_lines = []
+        for line in lines:
+            vals = line.split(',')
+            if vals[0] == old_key:  # Replace old_key with new_key
+                new_lines.append(f"{new_key},{vals[1]}")
+            else:
+                new_lines.append(line)
+        with open(file, "w") as f:
+            f.writelines(f"{line}\n" for line in new_lines)
+        return True
+
+    def GetCode(
+        self, 
+        key_string:str
+        )->str:
+        ''' Fetches the value assigned to the key string in self.storage_file
+
+        Parameters
+        ----------
+        self
+        key_string:str
+            The value used to store a code
+        
+        Returns
+        --------
+        value:str
+            The value assigned to key_string , '' if none was found
+        '''
+        value = ''
+        file = self.storage_file
+        self.CheckStorage()
+        if not os.path.isfile(file):
+            return value
+        with open(file, "r") as f:
+            data = f.readlines()
+        info = []
+        lines = [s.strip() for s in data]
+        for l in lines:
+            vals = l.split(',')
+            if not len(vals)>1:
+                continue
+            ks = vals[0] # fetch the key tring in the line
+            value = vals[1].replace("\n",'').strip()
+            if key_string == ks  :
+                return value 
+        return value
+
+
+    def DeleteKey(
+        self,
+        key_string:str
+        )->None:
+        """ Delete the line with the specific key in self.storage_file 
+
+        Parameters
+        ----------
+        key_string:str
+            The key string to remove
+        Returns
+        -------
+        None
+
+        """
+        file = self.storage_file
+        self.CheckStorage()
+        if not os.path.isfile(file):
+            return value
+        with open(file, "r") as f:
+            data = f.readlines()
+        info = []
+        lines = [s.strip() for s in data]
+        for l in lines:
+            vals = l.split(',')
+            if not len(vals)>1:
+                continue
+            ks = vals[0]
+            value = vals[1].replace("\n",'')
+            if ks == key_string:
+                lines.remove(l) # remove the line
+                continue
+        # write the new lines 
+        with open(file, "w") as f:
+            for l in lines:
+                f.write(l )
+
+
+    def DeleteCode(
+            self ,
+            code)->None:
+        ''' Delete the line with the code in self.storage_file
+
+        Paramaters
+        ----------
+        code:str
+            The code to delete from the file
+
+        Returns
+        --------
+        None
+
+        ''' 
+        file = self.storage_file
+        self.CheckStorage()
+        if not os.path.isfile(file):
+            return value
+        with open(file, "r") as f:
+            data = f.readlines()
+        info = []
+        lines = [s.strip() for s in data]
+        for l in lines:
+            vals = l.split(',')
+            if not len(vals)>1:
+                continue
+            value = vals[1].replace('\n','')
+            if code == value:
+                lines.remove(l) # remove the line
+                continue
+        # write the new lines 
+        with open(file, "w") as f:
+            for l in lines:
+                f.write(l )
+
+
+    def ValidateCode(
+            self,
+            code:str ,
+            key_string:str ,
+            delete_if_valid:bool =  True
+              )-> bool:
         """
         Check if a code exists in the storage file . 
         if delete_if_valid is True , the code is deleted from the file .
@@ -127,36 +322,34 @@ class CodeGenerator:
         code:str
             The code that is to be vlaidated
         key_string:str
+            The value used to store a code
             A string that will act as an identifier of the code ownership during validation
             An example is an email_address, or a username 
         delete_if_valid:bool
             set to [True] to delete the code after positive validation , 
             setting to [False] will leave the code in the file .   
+
+        Returns
+        -------
+        validation_check:bool
+            If the code matches the key string 
         """
 
         self.CheckStorage()
-        file = self.storage_file
-        if not os.path.isfile(file):
-            with open(file, "w") as f:
-                f.write("")
-        with open(file, "r") as f:
-            data = f.readlines()
-        info = []
-        lines = [s.strip() for s in data]
-        for l in lines:
-            vals = l.split(',')
-            ks = vals[0]
-            cd = vals[1]
-            if key_string == ks and code == cd :
-                if delete_if_valid:
-                    lines.pop(lines.index(l))
-                with open(file, "w") as f:
-                    for l in lines:
-                        f.write(l+"\n")
-                return True
-        return False
+        value = self.GetCode( key_string)
 
-    def ClearCodes(self ,delete_file = False ):
+        validation_check = value == code
+        if validation_check and delete_if_valid:
+            self.DeleteCode(code)
+        return validation_check
+
+
+       
+
+    def ClearCodes(
+            self,
+            delete_file = False
+             ):
         ''' 
         This methods removes all the codes from the storage file . 
         set delete to True to delete the file 
