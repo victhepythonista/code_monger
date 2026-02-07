@@ -1,11 +1,13 @@
 *.pyc
-__pycache__/
+/__pycache__/
 *.pkl
-dist/
-build/
+/dist/
+/build/
 code_monger.egg-info/
 *.bat
-myvenv/
-test_data/
+*.sh
+/myvenv/
+/venv/
+/test_data/
 codes/
 

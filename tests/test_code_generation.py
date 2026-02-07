@@ -39,20 +39,19 @@ class TestCodeGeneration(TestCase):
 		# check if code generation happens when no parameters are specified
 		code = generate_code()
 		self.assertTrue(len(code) == default_code_length)
-	def test_CodeClearance(self):
-		test_file = "codes_test_file.txt"
-		cg = CodeGenerator(test_file)
 
- 
+
+
 
 	def test_NewCode(self):
 		'''
 		Testing the generation of a new code
 
 		'''
-		test_file = "./test_data/codes.txt"
+		test_file = "test_data/test_make_new_codes.txt"
 		test_key_string = "myemail@gmail.com"
 		cg = CodeGenerator(test_file)
+		cg.ClearCodes()
 		code = cg.NewCode(test_key_string   )
 		self.assertTrue(len(code) == default_code_length)
 		file_data = ''
@@ -60,6 +59,7 @@ class TestCodeGeneration(TestCase):
 			file_data = f.read()
 		self.assertTrue(code in file_data)
 		validation_result = cg.ValidateCode(code , test_key_string)
+		print(f"Validating code {code} with key {test_key_string}")
 		self.assertTrue(validation_result == True)
 		with open (test_file , "r") as f:
 			file_data = f.read()
@@ -73,6 +73,10 @@ class TestCodeGeneration(TestCase):
 		with open (test_file , "r") as f:
 			file_data = f.read()
 		self.assertTrue(code in file_data)
+
+
+	
+
 
 if __name__ == '__main__':
 	unittest.main()
