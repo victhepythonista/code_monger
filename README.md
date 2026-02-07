@@ -3,14 +3,14 @@
  
  
 <p align="center">
-  <img   src="https://i.ibb.co/Nd8RL5Hs/code-monger-new-logo.png" alt="Logo">
+  <img   src="https://i.ibb.co/5X7nd83b/LOGO.png" alt="Logo">
 </p>
 
 <div align="center">
 
 ![](https://img.shields.io/badge/PYTHON-046E7a?style=for-the-badge)
 
-![](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge)
+![](https://img.shields.io/badge/TESTS-passing-brightgreen?style=for-the-badge)
 
 
 </div>
