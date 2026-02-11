@@ -13,6 +13,7 @@
 ![](https://img.shields.io/badge/TESTS-passing-brightgreen?style=for-the-badge)
 
 
+![](https://img.shields.io/badge/VERSION-0.2.2-blue?style=for-the-badge)
 </div>
 
 <div align="center">

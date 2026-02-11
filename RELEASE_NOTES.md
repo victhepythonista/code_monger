@@ -1,5 +1,10 @@
 # RELEASE NOTES
 
+## Version 0.2.2
+
+- New logo
+
+
 ## Version 0.2.1 (8/2/2026)
 
 - Major overhaul on the CodeGenerator class with new methods .ie 
