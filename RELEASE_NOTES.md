@@ -1,6 +1,6 @@
 # RELEASE NOTES
 
-## Version 0.2.1
+## Version 0.2.1 (8/2/2026)
 
 - Major overhaul on the CodeGenerator class with new methods .ie 
 	- **DeleteKey**
@@ -9,10 +9,11 @@
 	- **GetCode**
 	- **DeleteCode**
 
-- Logo update
+
+--------------------------------------------------
 
 
- ## Version 0.1.7    (21-02-2025)
+## Version 0.1.7    (21-02-2025) 
  
  
 - Docstrings  for the *CodeGenerator* class improved
