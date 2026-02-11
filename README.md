@@ -1,9 +1,8 @@
  
  
  
- 
 <p align="center">
-  <img   src="LOGO.png" alt="Logo">
+  <img   src="https://i.ibb.co/C36Yb2b6/LOGO.png" alt="Logo">
 </p>
 
 <div align="center">
