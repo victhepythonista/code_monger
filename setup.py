@@ -9,7 +9,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="code_monger",
-    version="0.2.3",
+    version="0.2.4",
     author="Victor Kipkemboi",
     author_email="scriptilapia@gmail.com",
     long_description =long_description,

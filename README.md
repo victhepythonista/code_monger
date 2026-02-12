@@ -2,7 +2,7 @@
  
  
 <p align="center">
-  <img   src="https://i.ibb.co/C36Yb2b6/LOGO.png" alt="Logo">
+  <img   src="https://i.ibb.co/J9SYPxj/CODEMONGERLOGO.png" alt="Logo">
 </p>
 
 <div align="center">
