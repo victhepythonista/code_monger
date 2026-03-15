@@ -1,5 +1,10 @@
 # RELEASE NOTES
 
+## Version 0.2.4
+
+- Fixed the '''punctuation_chars = puntiation''' bug
+
+
 ## Version 0.2.2
 
 - New logo
