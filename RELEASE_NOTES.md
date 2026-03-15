@@ -1,6 +1,6 @@
 # RELEASE NOTES
 
-## Version 0.2.4
+## Version 0.2.5
 
 - Fixed the '''punctuation_chars = puntiation''' bug
 
