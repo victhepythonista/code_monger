@@ -12,7 +12,12 @@ import datetime as dt
 
 valid_casing_values = ['all' , "upper" ,'lower']
 UNWANTED_CHARACHTERS = '''"','''
-def generate_code( length = 10 ,  numbers = False , letters = False , punctuation_chars = False , casing = "all"):
+def generate_code(
+    length = 10 ,
+    numbers = False ,
+    letters = False ,
+    punctuation_chars = False ,
+    casing = "all") -> str :
     '''Makes a code following the parameters provided
 
     Parameters
@@ -112,7 +117,8 @@ class CodeGenerator:
         lines = [s.strip() for s in lines]
         contents = digits + ascii_uppercase
         while True:
-            cache = generate_code( length = length , numbers = numbers , letters = letters , punctuation_chars =punctuation_chars , casing = casing)
+            cache = str(generate_code( length = length , numbers = numbers , letters = letters , punctuation_chars =punctuation_chars , casing = casing))
+            key_string = str(key_string)
             if not cache  in lines:
                 lines.append(key_string +","+ cache)
                 with open(data_file, 'w') as f:
