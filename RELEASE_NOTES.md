@@ -1,5 +1,10 @@
 # RELEASE NOTES
 
+## Version 0.2.6
+
+- Fixed the None + str concantenate bug in NewCode 
+
+
 ## Version 0.2.5
 
 - Fixed the '''punctuation_chars = puntiation''' bug
